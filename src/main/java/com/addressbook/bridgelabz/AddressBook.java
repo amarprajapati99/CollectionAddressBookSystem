@@ -1,4 +1,4 @@
-package bridgelabz;
+package com.addressbook.bridgelabz;
 
 public class AddressBook {
     public static void main(String[] args) {

@@ -62,9 +62,25 @@ public class AddressBook {
                 System.out.println("contact not found");
         }
     }
+    /* @Description delete contacts details if first name is matched. */
+    public void deleteContact(String firstName) {
+        if (contacts == null)
+            System.out.println("Address book is empty");
+        else {
+            if (contacts.getFirstName().equalsIgnoreCase(firstName)) {
+                contacts = null;
+                System.out.println("contact deletd successfully");
+            } else
+                System.out.println("contact is not found in address book");
+
+        }
+    }
     @Override
     public String toString(){
-        return contacts.toString();
+        if (contacts == null)
+            return "Address book is empty";
+        else
+            return contacts.toString();
     }
 
     public static void main(String[] args) {
@@ -73,5 +89,36 @@ public class AddressBook {
         System.out.println("enter the first name of contact you wanna  edit");
         addressBook.editContactDetails(scanner.next());
         System.out.println(addressBook.toString());
+        int choice = 0;
+        while (choice != 5) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("what you want to do please select 1-5 ");
+            System.out.println("select  1 -> To add a new contact in the address book");
+            System.out.println("select 2 -> To edit the existing contact");
+            System.out.println("select 3 -> To delete the existing contact");
+            System.out.println("select 4 -> To print the Address Book");
+            System.out.println("select 5 -> To exit");
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    addressBook.addContacts();
+                    break;
+                case 2:
+                    System.out.println("enter the first name of contact you want to edit");
+                    addressBook.editContactDetails(scanner.next());
+                    break;
+                case 3:
+                    System.out.println("enter the first name of contact you want to delete");
+                    addressBook.deleteContact(scanner.next());
+                    break;
+                case 4:
+                    System.out.println(addressBook.toString());
+                    break;
+                case 5:
+                    System.exit(choice);
+                default:
+                    System.out.println("press correct choice number");
+            }
+        }
     }
 }

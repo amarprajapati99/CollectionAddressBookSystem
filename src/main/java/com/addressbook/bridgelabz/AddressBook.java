@@ -34,6 +34,16 @@ public class AddressBook {
         System.out.println("contact successfully added");
         contactsList.add(contacts);
     }
+    /* to check duplicate entry if find duplicate are not allowed */
+    public boolean duplicateEntryCheck(String firstName)
+    {
+        for (Contacts contacts: contactsList) {
+            boolean existAlready=contacts.equals(firstName);
+            if(existAlready==true)
+                return true;
+        }
+        return false;
+    }
     /* @Description - in this we edit contacts details
     * addse multiple contacts in address book
     * @Parameter - to take first name by user to check first name is matching or not if the name matched we can perform the

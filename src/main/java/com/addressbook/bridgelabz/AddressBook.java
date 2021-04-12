@@ -7,13 +7,13 @@ import java.util.Scanner;
 @Description - To create a contacts in address book with first name, last name, address, city, state,
 * zip,mobile number.
 * Added a new contact in address book.
-* added multiple contact in address book
+* added multiple contact in address book.
  */
 public class AddressBook {
     ArrayList<Contacts> contactsList = new ArrayList<Contacts>();
     Contacts contacts;
     static Scanner scanner = new Scanner(System.in);
-    private void addContacts() {
+    private void addNewContacts() {
         System.out.println("enter the first name");
         String firstName = scanner.nextLine();
         System.out.println("enter the last name");
@@ -157,7 +157,7 @@ public class AddressBook {
             choice = scanner.nextInt();
             switch (choice) {
                 case 1:
-                    addressBook.addContacts();
+                    addressBook.addNewContacts();
                     break;
                 case 2:
                     System.out.println("enter the first name of contact you want to edit");
